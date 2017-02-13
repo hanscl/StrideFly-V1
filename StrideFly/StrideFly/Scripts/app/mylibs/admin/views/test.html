@@ -1,0 +1,22 @@
+﻿<script type="text/x-kendo-template" id="admin-view-event-grid">
+<div class="k-content"> <!-- class="k-content" style="margin:10px;font-family:arial;font-size:12px;"-->
+     <div id="event-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: dataSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="false"
+            data-selectable="true"
+            data-scrollable="false"
+            data-columns='[
+                { field: "Name", width:"21%"},
+                { field: "Location", width:"13%", format:"{0:g}"},
+                { field: "Start", width:"20%", format:"{0:g}"},
+                { field: "End", width:"20%", format:"{0:g}"},
+                { field: "Series", Title:"Race Series", width:"13%"},
+                { field: "Type", Title:"Event Type", width:"13%"}
+                ]'>                
+    </div>
+</div>
+</script>

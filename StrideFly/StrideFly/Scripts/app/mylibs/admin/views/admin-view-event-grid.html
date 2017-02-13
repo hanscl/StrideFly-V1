@@ -1,0 +1,25 @@
+﻿<div class="k-content" id="admin-view-event-grid"> 
+    <div id="admin-event-form">
+     <div id="admin-event-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: dataSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="inline"
+            data-selectable="true"
+            data-scrollable="false"
+            data-columns='[
+                { field: "Name", width:"18%"},
+                { field: "Location", width:"16%"},
+                { field: "Start", width:"15%", format:"{0:g}"},
+                { field: "End", width:"15%", format:"{0:g}"},
+                { field: "SeriesName", title:"Race Series", width:"11%"},
+                { field: "SeriesType", title:"Event Type", width:"10%"},
+                { field: "Laps", width:"5%"},
+                { command: [{text: "Edit", click: app.admin.adminEvent.editEvent}, {text: "Courses", click: app.admin.adminEvent.editCourses} ], title: "Action", width: "10%"}
+
+                ]'>               
+    </div>
+        </div>
+</div>

@@ -1,0 +1,27 @@
+﻿<div class="k-content" id="admin-view-trackers"> 
+    <div id="admin-trackers-form">
+     <div id="admin-trackers-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: trackerSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="inline"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="false"
+            data-toolbar="['create']"
+            data-columns='[
+                { field: "TrackerID", title:"ID", width:"5%"},
+                { field: "Brand", width:"12%"},
+                { field: "Model", width:"10%"},
+                { field: "SerialNo", title: "Serial #", width:"15%"},
+                { field: "IMEI", width:"12%"},
+                { field: "FK_SimCard", title:"SIM Card", width:"15%", editor:app.admin.adminTrackers.simCardEditor, template:app.admin.adminTrackers.simCardLookup},
+                { field: "FK_Participant", title:"Assign to", width:"15%", editor:app.admin.adminTrackers.participantEditor, template:app.admin.adminTrackers.participantLookup},
+                { command: ["edit","destroy"], title: "Actions", width: "15%"}
+                ]'>               
+    </div>
+        </div>
+</div>
+

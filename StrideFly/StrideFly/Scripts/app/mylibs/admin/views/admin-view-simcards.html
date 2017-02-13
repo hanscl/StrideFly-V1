@@ -1,0 +1,24 @@
+﻿<div class="k-content" id="admin-view-simcards"> 
+    <div id="admin-simcards-form">
+     <div id="admin-simcards-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: simCardSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="inline"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="false"
+            data-toolbar="['create']"
+            data-columns='[
+                { field: "SimNo", title:"Sim #", width:"20%"},
+                { field: "PhoneNo", title: "Phone #", width:"15%", template:app.admin.adminSimcards.simNoFormat},
+                { field: "Provider", width:"15%"},
+                { field: "PlanDesc", title: "Plan Description", width:"30%"},
+                { command: ["edit","destroy"], title: "Actions", width: "20%"}
+                ]'>               
+    </div>
+        </div>
+</div>
+

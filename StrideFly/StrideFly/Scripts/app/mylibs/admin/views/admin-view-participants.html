@@ -1,0 +1,29 @@
+﻿<div class="k-content" id="admin-view-trackers"> 
+    <div id="admin-participants-form">
+     <div id="admin-participants-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: participantSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="inline"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="false"
+            data-toolbar="['create']"
+            data-columns='[
+                { field: "Name", width:"15%"},
+                { field: "Bib", width:"5%"},
+                { field: "FK_Type", title: "Ind./Team", width:"8%", editor:app.admin.adminParticipants.partTypeEditor, template:app.admin.adminParticipants.partTypeLookup},
+                { field: "Runners", width:"6%"},
+                { field: "FK_Event", title:"Event", width:"20%", editor:app.admin.adminParticipants.eventEditor, template:app.admin.adminParticipants.eventLookup},
+                { field: "Lap", title:"Curr. Lap", width:"5%"},
+                { field: "CourseNo", title:"Course No.", width:"5%"},
+                { field: "FK_Course", title:"Course ID", width:"5%"},  
+                { field: "StartFinishPos", title:"Position", width:"10%", template:app.admin.adminParticipants.positionLookup},
+                { command: ["edit","destroy"], title: "Actions", width: "20%"}
+                ]'>               
+    </div>
+        </div>
+</div>
+

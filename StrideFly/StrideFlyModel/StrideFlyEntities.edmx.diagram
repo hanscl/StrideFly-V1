@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="96e62f9622ec4354990b1be62772430d" Name="Diagram1">
+        <EntityTypeShape EntityType="StrideFlyModel.RaceSeries" Width="1.5" PointX="3.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StrideFlyModel.SimCard" Width="1.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="StrideFlyModel.CourseMarker" Width="1.5" PointX="7.375" PointY="9.125" />
+        <EntityTypeShape EntityType="StrideFlyModel.ParticipantType" Width="1.5" PointX="11.75" PointY="4.375" />
+        <EntityTypeShape EntityType="StrideFlyModel.Tracker" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="StrideFlyModel.FK_Trackers_SimCards" />
+        <EntityTypeShape EntityType="StrideFlyModel.Course" Width="1.5" PointX="4.625" PointY="8.125" />
+        <AssociationConnector Association="StrideFlyModel.FK_CourseMarkers_Course" />
+        <EntityTypeShape EntityType="StrideFlyModel.CoursePoint" Width="1.5" PointX="6.125" PointY="12.875" />
+        <AssociationConnector Association="StrideFlyModel.FK_CoursePoints_Courses" />
+        <EntityTypeShape EntityType="StrideFlyModel.Lap" Width="1.5" PointX="10.75" PointY="7.5" />
+        <EntityTypeShape EntityType="StrideFlyModel.LiveLap" Width="1.5" PointX="2.25" PointY="7" FillColor="Red" />
+        <AssociationConnector Association="StrideFlyModel.FK_Laps_Courses" />
+        <EntityTypeShape EntityType="StrideFlyModel.Participant" Width="1.5" PointX="9.75" PointY="0.875" />
+        <AssociationConnector Association="StrideFlyModel.FK_Participants_Courses" />
+        <AssociationConnector Association="StrideFlyModel.FK_Laps_Participants" />
+        <AssociationConnector Association="StrideFlyModel.FK_Participants_ParticipantType" />
+        <AssociationConnector Association="StrideFlyModel.FK_Trackers_Participants" />
+        <EntityTypeShape EntityType="StrideFlyModel.TrackPoint" Width="1.5" PointX="9.0232415464814952" PointY="9.59599912613444" />
+        <AssociationConnector Association="StrideFlyModel.FK_TrackPoints_CourseMarkers_" />
+        <AssociationConnector Association="StrideFlyModel.FK_TrackPoints_Courses" />
+        <AssociationConnector Association="StrideFlyModel.FK_TrackPoints_Participants" />
+        <AssociationConnector Association="StrideFlyModel.FK_TrackPoints_Trackers" />
+        <EntityTypeShape EntityType="StrideFlyModel.LiveParticipant" Width="1.5" PointX="0.5" PointY="5.75" FillColor="Red" />
+        <EntityTypeShape EntityType="StrideFlyModel.LiveTracker" Width="1.5" PointX="2.25" PointY="3.375" FillColor="Red" />
+        <EntityTypeShape EntityType="StrideFlyModel.PointOfInterest" Width="1.625" PointX="3.5" PointY="12.875" />
+        <AssociationConnector Association="StrideFlyModel.FK_PointsOfInterest_Courses" />
+        <EntityTypeShape EntityType="StrideFlyModel.Event" Width="1.5" PointX="5.25" PointY="3.5" />
+        <AssociationConnector Association="StrideFlyModel.FK_Courses_Events" />
+        <AssociationConnector Association="StrideFlyModel.FK_Events_RaceSeries" />
+        <AssociationConnector Association="StrideFlyModel.FK_Laps_Events" />
+        <AssociationConnector Association="StrideFlyModel.FK_Participants_Events" />
+        <EntityTypeShape EntityType="StrideFlyModel.vEvent" Width="1.5" PointX="0.5" PointY="1.75" FillColor="255, 128, 0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

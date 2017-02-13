@@ -1,0 +1,29 @@
+﻿<div class="k-content" id="admin-view-courses"> 
+    <div id="admin-courses-form">
+     <div id="admin-courses-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: courseSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="inline"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="false"
+            data-toolbar="['create']"
+            data-columns='[
+                { field: "Name", width:"15%"},
+                { field: "FK_Event", title:"Event", width:"15%", editor:app.admin.adminCourses.eventEditor, template:app.admin.adminCourses.eventLookup},
+                { field: "Distance", width:"10%", format:"{0:#.00}mi"},
+                { field: "ElevGain", title: "Elev. Gain", width:"10%", format:"{0:#}ft"},
+                { field: "Order", width:"5%"},
+                { field: "Description", width:"10%"},
+         { field: "StrokeColor", title:"Color", width:"5%"},
+         { field: "StrokeThickness", title:"Thick", width:"5%"},
+         { field: "StrokeDash", title:"Dash", width:"5%"},
+                { command: ["edit","destroy",{text: "Upload Markers", click: app.admin.adminCourses.uploadMarkers}, {text: "Edit Markers", click: app.admin.adminCourses.editMarkers} ], title: "Actions", width: "20%"}
+                ]'>               
+    </div>
+        </div>
+</div>
+

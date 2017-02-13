@@ -1,0 +1,29 @@
+﻿<div class="live-event-currentlap-border"> <!-- start pace calculator -->
+         <div class="row-fluid live-event-laptable-header-row">       
+        <div class="span12 live-event-detail" style="min-height:0">
+            Upcoming Laps ...
+        </div>
+
+   </div>
+    </div>
+<div class="k-content k-content-noMargin" id="live-event-laptable"> 
+     <div id="live-event-lap-grid"
+            data-role="grid"
+            data-sortable="false"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: upcomingLapsSource"
+            data-editable="false"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="false"
+            data-columns='[
+                { field: "LapNo", title:"Lap", width:"10%"},
+                { field: "RunnerNo", title:"Runner", width:"13%"},
+                { field: "CourseName", title:"Course", width:"25%"},
+                { field: "DistanceTotal", title:"Distance ", width:"15%", format:"{0:#.00} mi"},       
+                { field: "ProjStartTime", title:"Proj. Start", width:"17%", format:"{0:h:mm:ss tt}"},
+                { field: "ProjTotalTime", title:"Time on Track", width:"20%", template:app.live.liveEvent.timeFormat}
+                ]'>               
+    </div>
+</div>

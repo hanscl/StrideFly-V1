@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideFlyTrackingServer", "StrideFlyTrackingServer\StrideFlyTrackingServer.csproj", "{08E8FA13-8FEE-44D3-A822-9B34A775F951}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD5DF60F-AB32-492D-9F10-7A6513A1426C} = {CD5DF60F-AB32-492D-9F10-7A6513A1426C}
+		{47060F9E-09F1-4FD0-BAE6-7156CE52FF44} = {47060F9E-09F1-4FD0-BAE6-7156CE52FF44}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideFlyTracking", "StrideFlyTracking\StrideFlyTracking.csproj", "{47060F9E-09F1-4FD0-BAE6-7156CE52FF44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F087EB0F-AC3C-4669-B608-B0BD7BA7908C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideFlyModel", "..\StrideFly\StrideFlyModel\StrideFlyModel.csproj", "{11A3DEE0-6D12-4995-BD2A-0BB0C508E7F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideFlyTrackingService", "StrideFlyTrackingService\StrideFlyTrackingService.csproj", "{896AE328-3520-42F3-BB7A-07A0C8984B77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideFlyServer", "StrideFlyServer\StrideFlyServer.csproj", "{CD5DF60F-AB32-492D-9F10-7A6513A1426C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideFlyLogging", "StrideFlyLogging\StrideFlyLogging.csproj", "{2B0818F0-B436-45A9-A39A-091A4E84BC10}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08E8FA13-8FEE-44D3-A822-9B34A775F951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E8FA13-8FEE-44D3-A822-9B34A775F951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E8FA13-8FEE-44D3-A822-9B34A775F951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E8FA13-8FEE-44D3-A822-9B34A775F951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47060F9E-09F1-4FD0-BAE6-7156CE52FF44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47060F9E-09F1-4FD0-BAE6-7156CE52FF44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47060F9E-09F1-4FD0-BAE6-7156CE52FF44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47060F9E-09F1-4FD0-BAE6-7156CE52FF44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11A3DEE0-6D12-4995-BD2A-0BB0C508E7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11A3DEE0-6D12-4995-BD2A-0BB0C508E7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11A3DEE0-6D12-4995-BD2A-0BB0C508E7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11A3DEE0-6D12-4995-BD2A-0BB0C508E7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896AE328-3520-42F3-BB7A-07A0C8984B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896AE328-3520-42F3-BB7A-07A0C8984B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896AE328-3520-42F3-BB7A-07A0C8984B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896AE328-3520-42F3-BB7A-07A0C8984B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD5DF60F-AB32-492D-9F10-7A6513A1426C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD5DF60F-AB32-492D-9F10-7A6513A1426C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD5DF60F-AB32-492D-9F10-7A6513A1426C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD5DF60F-AB32-492D-9F10-7A6513A1426C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0818F0-B436-45A9-A39A-091A4E84BC10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0818F0-B436-45A9-A39A-091A4E84BC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0818F0-B436-45A9-A39A-091A4E84BC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0818F0-B436-45A9-A39A-091A4E84BC10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

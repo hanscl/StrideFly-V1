@@ -1,0 +1,32 @@
+﻿<div class="k-content"> 
+     <div class="control-group">
+            <label class="control-label" for="settings-select-event">Event</label>
+            <div class="controls">
+                <select data-role="dropdownlist" data-bind="source: eventSource, events: { select: onSelect }" data-option-label="Select an item ..." data-value-primitive="true" data-text-field="Name" data-value-field="EventID" id="settings-select-event">
+                </select>
+         </div>
+     </div>
+    <div id="admin-settings-event" class="form-horizontal well">
+          <div class="control-group">
+            <label class="control-label" for="settings-event-active">Active?</label>
+            <div class="controls">
+                <input type="radio" value="Yes" name="active" data-bind="checked: selectedColor" />
+                <input type="radio" value="No" name="active" data-bind="checked: selectedColor" />
+            </div>
+          </div>
+
+         <div class="control-group">
+            <label class="control-label" for="settings-event-interval">Live Interval (seconds)</label>
+            <div class="controls">
+                  <input type="number" class="span3" style="max-width: 300px;" id="settings-event-interval" data-bind="value: eventSettings.LiveInterval">
+            </div>
+        </div> <!-- END Data form -->
+        <div id="admin-event-item-actions">
+            <div class="form-actions">
+                <a href="#" class="btn btn-success" data-bind="click: saveEvent"><i class="fui-check"></i> Save</a>
+                <a href="#" class="btn" data-bind="click: cancelEdit">Cancel</a>
+                <a href="#" class="btn btn-danger" data-bind="click: deleteEvent"><i class="fui-cross"></i> Delete</a>
+            </div>
+        </div> <!-- End actions -->
+    </div>  <!-- End .well -->
+</div>

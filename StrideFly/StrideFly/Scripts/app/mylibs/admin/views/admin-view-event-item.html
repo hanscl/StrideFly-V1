@@ -1,0 +1,58 @@
+﻿<div class="k-content"> 
+    <div id="admin-event-item" class="form-horizontal well">
+        <div id="admin-event-item-data">
+          <div class="control-group">
+            <label class="control-label" for="edit-event-name">Name</label>
+            <div class="controls">
+              <input type="text" class="span3" style="max-width: 300px;" id="edit-event-name" , data-bind="value: eventItemData.Name">
+           <!--   <p class="help-block">    In addition to freeform text, any    HTML5 text-based input appears like so.</p> -->
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="edit-event-location">Location</label>
+            <div class="controls">
+                  <input type="text" class="span3" style="max-width: 300px;" id="edit-event-location" data-bind="value: eventItemData.Location">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="edit-event-start">Event Start</label>
+            <div class="controls">
+              <input data-role="datetimepicker" id="edit-event-start", data-bind="value: eventItemData.Start"/>
+              
+            </div>
+          </div>
+            
+          <div class="control-group">
+            <label class="control-label" for="edit-event-end">Event End</label>
+            <div class="controls">
+              <input data-role="datetimepicker" id="edit-event-end" data-bind="value: eventItemData.End"/>
+            </div>
+          </div>
+
+        <div class="control-group">
+            <label class="control-label" for="edit-event-series">Race Series</label>
+            <div class="controls">
+              <select data-role="dropdownlist" data-bind="source: seriesData, value: eventItemData.FK_RaceSeries" data-option-label="Select an item ..." data-value-primitive="true" data-text-field="SeriesName" data-value-field="SeriesID" id="edit-event-series">
+
+              </select>
+            </div>
+          </div>
+
+             <div class="control-group">
+            <label class="control-label" for="edit-event-laps"># of Laps</label>
+            <div class="controls">
+                  <input type="number" class="span3" style="max-width: 300px;" id="edit-event-laps" data-bind="value: eventItemData.Laps">
+            </div>
+          </div>
+
+    
+        </div> <!-- END Data form -->
+        <div id="admin-event-item-actions">
+            <div class="form-actions">
+                <a href="#" class="btn btn-success" data-bind="click: saveEvent"><i class="fui-check"></i> Save</a>
+                <a href="#" class="btn" data-bind="click: cancelEdit">Cancel</a>
+                <a href="#" class="btn btn-danger" data-bind="click: deleteEvent"><i class="fui-cross"></i> Delete</a>
+            </div>
+        </div> <!-- End actions -->
+    </div>  <!-- End .well -->
+</div>

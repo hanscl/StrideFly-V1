@@ -1,0 +1,1594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StrideFlyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="StrideFlyModelStoreContainer">
+          <EntitySet Name="CourseMarkers" EntityType="StrideFlyModel.Store.CourseMarkers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CoursePoints" EntityType="StrideFlyModel.Store.CoursePoints" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Courses" EntityType="StrideFlyModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Events" EntityType="StrideFlyModel.Store.Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Laps" EntityType="StrideFlyModel.Store.Laps" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Participants" EntityType="StrideFlyModel.Store.Participants" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ParticipantTypes" EntityType="StrideFlyModel.Store.ParticipantTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PointsOfInterest" EntityType="StrideFlyModel.Store.PointsOfInterest" store:Type="Tables" store:Schema="dbo" store:Name="PointsOfInterest">
+            <DefiningQuery>SELECT 
+      [PointsOfInterest].[PointID] AS [PointID], 
+      [PointsOfInterest].[Name] AS [Name], 
+      [PointsOfInterest].[Location] AS [Location], 
+      [PointsOfInterest].[Icon] AS [Icon], 
+      [PointsOfInterest].[FK_Course] AS [FK_Course], 
+      [PointsOfInterest].[InfoBoxText] AS [InfoBoxText]
+      FROM [dbo].[PointsOfInterest] AS [PointsOfInterest]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RaceSeries" EntityType="StrideFlyModel.Store.RaceSeries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SimCards" EntityType="StrideFlyModel.Store.SimCards" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Trackers" EntityType="StrideFlyModel.Store.Trackers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TrackPoints" EntityType="StrideFlyModel.Store.TrackPoints" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LiveLap" EntityType="StrideFlyModel.Store.LiveLap" store:Type="Views" store:Schema="dbo" store:Name="LiveLap">
+            <DefiningQuery>SELECT 
+      [LiveLap].[LapID] AS [LapID], 
+      [LiveLap].[PartID] AS [PartID], 
+      [LiveLap].[EventID] AS [EventID], 
+      [LiveLap].[RunnerNo] AS [RunnerNo], 
+      [LiveLap].[CourseName] AS [CourseName], 
+      [LiveLap].[CourseDistance] AS [CourseDistance], 
+      [LiveLap].[CourseElevGain] AS [CourseElevGain], 
+      [LiveLap].[CourseNo] AS [CourseNo], 
+      [LiveLap].[LapNo] AS [LapNo], 
+      [LiveLap].[Status] AS [Status], 
+      [LiveLap].[TimeRemaining] AS [TimeRemaining], 
+      [LiveLap].[DistanceTotal] AS [DistanceTotal], 
+      [LiveLap].[DistanceCompleted] AS [DistanceCompleted], 
+      [LiveLap].[DistanceRemaining] AS [DistanceRemaining], 
+      [LiveLap].[LapPace] AS [LapPace], 
+      [LiveLap].[TimeElapsed] AS [TimeElapsed], 
+      [LiveLap].[TimeTotal] AS [TimeTotal], 
+      [LiveLap].[StartTime] AS [StartTime], 
+      [LiveLap].[EndTime] AS [EndTime], 
+      [LiveLap].[ProjTotalTime] AS [ProjTotalTime], 
+      [LiveLap].[ProjStartTime] AS [ProjStartTime], 
+      [LiveLap].[ProjEndTime] AS [ProjEndTime]
+      FROM [dbo].[LiveLap] AS [LiveLap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LiveParticipants" EntityType="StrideFlyModel.Store.LiveParticipants" store:Type="Views" store:Schema="dbo" store:Name="LiveParticipants">
+            <DefiningQuery>SELECT 
+      [LiveParticipants].[PartID] AS [PartID], 
+      [LiveParticipants].[EventID] AS [EventID], 
+      [LiveParticipants].[ParticipantName] AS [ParticipantName], 
+      [LiveParticipants].[Bib] AS [Bib], 
+      [LiveParticipants].[CurrentLap] AS [CurrentLap], 
+      [LiveParticipants].[CurrentCourse] AS [CurrentCourse], 
+      [LiveParticipants].[Runners] AS [Runners], 
+      [LiveParticipants].[TimeElapsed] AS [TimeElapsed], 
+      [LiveParticipants].[TimeRemaining] AS [TimeRemaining], 
+      [LiveParticipants].[TimeTotal] AS [TimeTotal], 
+      [LiveParticipants].[DistanceTotal] AS [DistanceTotal], 
+      [LiveParticipants].[DistanceCompleted] AS [DistanceCompleted], 
+      [LiveParticipants].[DistanceRemaining] AS [DistanceRemaining], 
+      [LiveParticipants].[AvgPace] AS [AvgPace], 
+      [LiveParticipants].[CurrPace] AS [CurrPace], 
+      [LiveParticipants].[TotalPace] AS [TotalPace], 
+      [LiveParticipants].[StartTime] AS [StartTime], 
+      [LiveParticipants].[EndTime] AS [EndTime], 
+      [LiveParticipants].[TrackerID] AS [TrackerID], 
+      [LiveParticipants].[TrackPointDT] AS [TrackPointDT], 
+      [LiveParticipants].[Latitude] AS [Latitude], 
+      [LiveParticipants].[Longitude] AS [Longitude], 
+      [LiveParticipants].[Altitude] AS [Altitude], 
+      [LiveParticipants].[BatteryPct] AS [BatteryPct], 
+      [LiveParticipants].[rk] AS [rk]
+      FROM [dbo].[LiveParticipants] AS [LiveParticipants]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LiveTrackers" EntityType="StrideFlyModel.Store.LiveTrackers" store:Type="Views" store:Schema="dbo" store:Name="LiveTrackers">
+            <DefiningQuery>SELECT 
+      [LiveTrackers].[PointID] AS [PointID], 
+      [LiveTrackers].[DateTime] AS [DateTime], 
+      [LiveTrackers].[Latitude] AS [Latitude], 
+      [LiveTrackers].[Longitude] AS [Longitude], 
+      [LiveTrackers].[Altitude] AS [Altitude], 
+      [LiveTrackers].[BatteryPct] AS [BatteryPct], 
+      [LiveTrackers].[TrackerID] AS [TrackerID], 
+      [LiveTrackers].[ParticipantName] AS [ParticipantName], 
+      [LiveTrackers].[Bib] AS [Bib], 
+      [LiveTrackers].[EventName] AS [EventName], 
+      [LiveTrackers].[rk] AS [rk]
+      FROM [dbo].[LiveTrackers] AS [LiveTrackers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vEvents" EntityType="StrideFlyModel.Store.vEvents" store:Type="Views" store:Schema="dbo" store:Name="vEvents">
+            <DefiningQuery>SELECT 
+      [vEvents].[EventID] AS [EventID], 
+      [vEvents].[Name] AS [Name], 
+      [vEvents].[Start] AS [Start], 
+      [vEvents].[End] AS [End], 
+      [vEvents].[TimeDiffPT] AS [TimeDiffPT], 
+      [vEvents].[SeriesID] AS [SeriesID], 
+      [vEvents].[Location] AS [Location], 
+      [vEvents].[SeriesName] AS [SeriesName], 
+      [vEvents].[SeriesType] AS [SeriesType], 
+      [vEvents].[Laps] AS [Laps], 
+      [vEvents].[RefreshInterval] AS [RefreshInterval], 
+      [vEvents].[CycleInterval] AS [CycleInterval]
+      FROM [dbo].[vEvents] AS [vEvents]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CourseMarkers_Course" Association="StrideFlyModel.Store.FK_CourseMarkers_Course">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="CourseMarkers" EntitySet="CourseMarkers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoursePoints_Courses" Association="StrideFlyModel.Store.FK_CoursePoints_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="CoursePoints" EntitySet="CoursePoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Events" Association="StrideFlyModel.Store.FK_Courses_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_RaceSeries" Association="StrideFlyModel.Store.FK_Events_RaceSeries">
+            <End Role="RaceSeries" EntitySet="RaceSeries" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laps_Courses" Association="StrideFlyModel.Store.FK_Laps_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Laps" EntitySet="Laps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laps_Events" Association="StrideFlyModel.Store.FK_Laps_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Laps" EntitySet="Laps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laps_Participants" Association="StrideFlyModel.Store.FK_Laps_Participants">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Laps" EntitySet="Laps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_Courses" Association="StrideFlyModel.Store.FK_Participants_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_Events" Association="StrideFlyModel.Store.FK_Participants_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_ParticipantType" Association="StrideFlyModel.Store.FK_Participants_ParticipantType">
+            <End Role="ParticipantTypes" EntitySet="ParticipantTypes" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PointsOfInterest_Courses" Association="StrideFlyModel.Store.FK_PointsOfInterest_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="PointsOfInterest" EntitySet="PointsOfInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trackers_Participants" Association="StrideFlyModel.Store.FK_Trackers_Participants">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Trackers" EntitySet="Trackers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trackers_SimCards" Association="StrideFlyModel.Store.FK_Trackers_SimCards">
+            <End Role="SimCards" EntitySet="SimCards" />
+            <End Role="Trackers" EntitySet="Trackers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_CourseMarkers " Association="StrideFlyModel.Store.FK_TrackPoints_CourseMarkers ">
+            <End Role="CourseMarkers" EntitySet="CourseMarkers" />
+            <End Role="TrackPoints" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_Courses" Association="StrideFlyModel.Store.FK_TrackPoints_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="TrackPoints" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_Participants" Association="StrideFlyModel.Store.FK_TrackPoints_Participants">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="TrackPoints" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_Trackers" Association="StrideFlyModel.Store.FK_TrackPoints_Trackers">
+            <End Role="Trackers" EntitySet="Trackers" />
+            <End Role="TrackPoints" EntitySet="TrackPoints" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CourseMarkers">
+          <Key>
+            <PropertyRef Name="MarkerID" />
+          </Key>
+          <Property Name="MarkerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Altitude" Type="float" Nullable="false" />
+          <Property Name="Distance" Type="float" Nullable="false" />
+          <Property Name="Bearing" Type="float" Nullable="false" />
+          <Property Name="FK_Course" Type="int" />
+          <Property Name="Include" Type="bit" />
+        </EntityType>
+        <EntityType Name="CoursePoints">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Name="PointID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="nvarchar" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="20" />
+          <Property Name="FK_Course" Type="int" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Distance" Type="float" />
+          <Property Name="ElevGain" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="FK_Event" Type="int" />
+          <Property Name="Order" Type="int" />
+          <Property Name="StrokeColor" Type="nvarchar" MaxLength="20" />
+          <Property Name="StrokeThickness" Type="int" />
+          <Property Name="StrokeDash" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Start" Type="datetime2" />
+          <Property Name="End" Type="datetime2" />
+          <Property Name="TimeDiffPT" Type="int" />
+          <Property Name="FK_RaceSeries" Type="int" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Laps" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="RefreshInterval" Type="int" />
+          <Property Name="CycleInterval" Type="int" />
+        </EntityType>
+        <EntityType Name="Laps">
+          <Key>
+            <PropertyRef Name="LapID" />
+          </Key>
+          <Property Name="LapID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Participant" Type="int" Nullable="false" />
+          <Property Name="FK_Event" Type="int" Nullable="false" />
+          <Property Name="RunnerNo" Type="int" />
+          <Property Name="FK_Course" Type="int" Nullable="false" />
+          <Property Name="LapNo" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="TimeElapsed" Type="int" />
+          <Property Name="TimeRemaining" Type="int" />
+          <Property Name="TimeTotal" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="DistanceTotal" Type="float" />
+          <Property Name="DistanceCompleted" Type="float" />
+          <Property Name="DistanceRemaining" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="LapPace" Type="int" />
+          <Property Name="StartTime" Type="datetime2" />
+          <Property Name="EndTime" Type="datetime2" />
+          <Property Name="ProjTotalTime" Type="int" />
+          <Property Name="ProjStartTime" Type="datetime2" />
+          <Property Name="ProjEndTime" Type="datetime2" />
+        </EntityType>
+        <EntityType Name="Participants">
+          <Key>
+            <PropertyRef Name="PartID" />
+          </Key>
+          <Property Name="PartID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bib" Type="int" />
+          <Property Name="Lap" Type="int" />
+          <Property Name="CourseNo" Type="int" />
+          <Property Name="FK_Course" Type="int" />
+          <Property Name="FK_Event" Type="int" />
+          <Property Name="FK_Type" Type="int" />
+          <Property Name="Runners" Type="int" />
+          <Property Name="StartFinishPos" Type="int" Nullable="false" />
+          <Property Name="TimeElapsed" Type="int" />
+          <Property Name="TimeRemaining" Type="int" />
+          <Property Name="TimeTotal" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="DistanceTotal" Type="float" />
+          <Property Name="DistanceCompleted" Type="float" />
+          <Property Name="DistanceRemaining" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="AvgPace" Type="int" />
+          <Property Name="CurrPace" Type="int" />
+          <Property Name="StartTime" Type="datetime2" />
+          <Property Name="EndTime" Type="datetime2" />
+          <Property Name="TotalPace" Type="int" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ParticipantTypes">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'StrideFly.dbo.PointsOfInterest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PointsOfInterest">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Name="PointID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Location" Type="float" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="20" />
+          <Property Name="FK_Course" Type="int" />
+          <Property Name="InfoBoxText" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RaceSeries">
+          <Key>
+            <PropertyRef Name="SeriesID" />
+          </Key>
+          <Property Name="SeriesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SeriesName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeriesType" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SimCards">
+          <Key>
+            <PropertyRef Name="SimID" />
+          </Key>
+          <Property Name="SimID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SimNo" Type="nvarchar" MaxLength="25" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="Provider" Type="nvarchar" MaxLength="15" />
+          <Property Name="PlanDesc" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Trackers">
+          <Key>
+            <PropertyRef Name="TrackerID" />
+          </Key>
+          <Property Name="TrackerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNo" Type="nvarchar" MaxLength="25" />
+          <Property Name="IMEI" Type="nvarchar" MaxLength="15" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="30" />
+          <Property Name="Model" Type="nvarchar" MaxLength="20" />
+          <Property Name="FK_SimCard" Type="int" />
+          <Property Name="FK_Participant" Type="int" />
+          <Property Name="BatteryPct" Type="float" />
+        </EntityType>
+        <EntityType Name="TrackPoints">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Name="PointID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="datetime2" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Altitude" Type="float" Nullable="false" />
+          <Property Name="Speed" Type="float" />
+          <Property Name="Bearing" Type="float" />
+          <Property Name="FK_Tracker" Type="int" Nullable="false" />
+          <Property Name="FK_Course" Type="int" />
+          <Property Name="FK_Participant" Type="int" />
+          <Property Name="FK_Marker" Type="int" />
+          <Property Name="BatteryPct" Type="float" />
+          <Property Name="DistanceOnCourse" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'StrideFly.dbo.LiveLap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LiveLap">
+          <Key>
+            <PropertyRef Name="LapID" />
+            
+            
+            
+          </Key>
+          <Property Name="LapID" Type="int" Nullable="false" />
+          <Property Name="PartID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="RunnerNo" Type="int" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CourseDistance" Type="float" />
+          <Property Name="CourseElevGain" Type="int" />
+          <Property Name="CourseNo" Type="int" />
+          <Property Name="LapNo" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="TimeRemaining" Type="int" />
+          <Property Name="DistanceTotal" Type="float" />
+          <Property Name="DistanceCompleted" Type="float" />
+          <Property Name="DistanceRemaining" Type="float" />
+          <Property Name="LapPace" Type="int" />
+          <Property Name="TimeElapsed" Type="int" />
+          <Property Name="TimeTotal" Type="int" />
+          <Property Name="StartTime" Type="datetime2" />
+          <Property Name="EndTime" Type="datetime2" />
+          <Property Name="ProjTotalTime" Type="int" />
+          <Property Name="ProjStartTime" Type="datetime2" />
+          <Property Name="ProjEndTime" Type="datetime2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'StrideFly.dbo.LiveParticipants' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LiveParticipants">
+          <Key>
+            <PropertyRef Name="PartID" />
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TrackerID" />
+            <PropertyRef Name="TrackPointDT" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Altitude" />
+          </Key>
+          <Property Name="PartID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="ParticipantName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bib" Type="int" />
+          <Property Name="CurrentLap" Type="int" />
+          <Property Name="CurrentCourse" Type="int" />
+          <Property Name="Runners" Type="int" />
+          <Property Name="TimeElapsed" Type="int" />
+          <Property Name="TimeRemaining" Type="int" />
+          <Property Name="TimeTotal" Type="int" />
+          <Property Name="DistanceTotal" Type="float" />
+          <Property Name="DistanceCompleted" Type="float" />
+          <Property Name="DistanceRemaining" Type="float" />
+          <Property Name="AvgPace" Type="int" />
+          <Property Name="CurrPace" Type="int" />
+          <Property Name="TotalPace" Type="int" />
+          <Property Name="StartTime" Type="datetime2" />
+          <Property Name="EndTime" Type="datetime2" />
+          <Property Name="TrackerID" Type="int" Nullable="false" />
+          <Property Name="TrackPointDT" Type="datetime2" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Altitude" Type="float" Nullable="false" />
+          <Property Name="BatteryPct" Type="float" />
+          <Property Name="rk" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'StrideFly.dbo.LiveTrackers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LiveTrackers">
+          <Key>
+            <PropertyRef Name="PointID" />
+            <PropertyRef Name="DateTime" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Altitude" />
+            <PropertyRef Name="TrackerID" />
+          </Key>
+          <Property Name="PointID" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime2" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Altitude" Type="float" Nullable="false" />
+          <Property Name="BatteryPct" Type="float" />
+          <Property Name="TrackerID" Type="int" Nullable="false" />
+          <Property Name="ParticipantName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bib" Type="int" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="50" />
+          <Property Name="rk" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'StrideFly.dbo.vEvents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vEvents">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="SeriesID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Start" Type="datetime2" />
+          <Property Name="End" Type="datetime2" />
+          <Property Name="TimeDiffPT" Type="int" />
+          <Property Name="SeriesID" Type="int" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeriesName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeriesType" Type="nvarchar" MaxLength="30" />
+          <Property Name="Laps" Type="int" />
+          <Property Name="RefreshInterval" Type="int" />
+          <Property Name="CycleInterval" Type="int" />
+        </EntityType>
+        <Association Name="FK_CourseMarkers_Course">
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="0..1" />
+          <End Role="CourseMarkers" Type="StrideFlyModel.Store.CourseMarkers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CourseMarkers">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoursePoints_Courses">
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="0..1" />
+          <End Role="CoursePoints" Type="StrideFlyModel.Store.CoursePoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CoursePoints">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Events">
+          <End Role="Events" Type="StrideFlyModel.Store.Events" Multiplicity="0..1" />
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="FK_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_RaceSeries">
+          <End Role="RaceSeries" Type="StrideFlyModel.Store.RaceSeries" Multiplicity="0..1" />
+          <End Role="Events" Type="StrideFlyModel.Store.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceSeries">
+              <PropertyRef Name="SeriesID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="FK_RaceSeries" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laps_Courses">
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="1" />
+          <End Role="Laps" Type="StrideFlyModel.Store.Laps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Laps">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laps_Events">
+          <End Role="Events" Type="StrideFlyModel.Store.Events" Multiplicity="1" />
+          <End Role="Laps" Type="StrideFlyModel.Store.Laps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="Laps">
+              <PropertyRef Name="FK_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laps_Participants">
+          <End Role="Participants" Type="StrideFlyModel.Store.Participants" Multiplicity="1" />
+          <End Role="Laps" Type="StrideFlyModel.Store.Laps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="Laps">
+              <PropertyRef Name="FK_Participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_Courses">
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="0..1" />
+          <End Role="Participants" Type="StrideFlyModel.Store.Participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_Events">
+          <End Role="Events" Type="StrideFlyModel.Store.Events" Multiplicity="0..1" />
+          <End Role="Participants" Type="StrideFlyModel.Store.Participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="FK_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_ParticipantType">
+          <End Role="ParticipantTypes" Type="StrideFlyModel.Store.ParticipantTypes" Multiplicity="0..1" />
+          <End Role="Participants" Type="StrideFlyModel.Store.Participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantTypes">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="FK_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PointsOfInterest_Courses">
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="0..1" />
+          <End Role="PointsOfInterest" Type="StrideFlyModel.Store.PointsOfInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="PointsOfInterest">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trackers_Participants">
+          <End Role="Participants" Type="StrideFlyModel.Store.Participants" Multiplicity="0..1" />
+          <End Role="Trackers" Type="StrideFlyModel.Store.Trackers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="Trackers">
+              <PropertyRef Name="FK_Participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trackers_SimCards">
+          <End Role="SimCards" Type="StrideFlyModel.Store.SimCards" Multiplicity="0..1" />
+          <End Role="Trackers" Type="StrideFlyModel.Store.Trackers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SimCards">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="Trackers">
+              <PropertyRef Name="FK_SimCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_CourseMarkers ">
+          <End Role="CourseMarkers" Type="StrideFlyModel.Store.CourseMarkers" Multiplicity="0..1" />
+          <End Role="TrackPoints" Type="StrideFlyModel.Store.TrackPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseMarkers">
+              <PropertyRef Name="MarkerID" />
+            </Principal>
+            <Dependent Role="TrackPoints">
+              <PropertyRef Name="FK_Marker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_Courses">
+          <End Role="Courses" Type="StrideFlyModel.Store.Courses" Multiplicity="0..1" />
+          <End Role="TrackPoints" Type="StrideFlyModel.Store.TrackPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="TrackPoints">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_Participants">
+          <End Role="Participants" Type="StrideFlyModel.Store.Participants" Multiplicity="0..1" />
+          <End Role="TrackPoints" Type="StrideFlyModel.Store.TrackPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="TrackPoints">
+              <PropertyRef Name="FK_Participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_Trackers">
+          <End Role="Trackers" Type="StrideFlyModel.Store.Trackers" Multiplicity="1" />
+          <End Role="TrackPoints" Type="StrideFlyModel.Store.TrackPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trackers">
+              <PropertyRef Name="TrackerID" />
+            </Principal>
+            <Dependent Role="TrackPoints">
+              <PropertyRef Name="FK_Tracker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StrideFlyModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="StrideFlyEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="RaceSeries1" EntityType="StrideFlyModel.RaceSeries" />
+          <EntitySet Name="SimCards" EntityType="StrideFlyModel.SimCard" />
+          <EntitySet Name="CourseMarkers" EntityType="StrideFlyModel.CourseMarker" />
+          <EntitySet Name="ParticipantTypes" EntityType="StrideFlyModel.ParticipantType" />
+          <EntitySet Name="Trackers" EntityType="StrideFlyModel.Tracker" />
+          <AssociationSet Name="FK_Trackers_SimCards" Association="StrideFlyModel.FK_Trackers_SimCards">
+            <End Role="SimCard" EntitySet="SimCards" />
+            <End Role="Tracker" EntitySet="Trackers" />
+          </AssociationSet>
+          <EntitySet Name="Courses" EntityType="StrideFlyModel.Course" />
+          <AssociationSet Name="FK_CourseMarkers_Course" Association="StrideFlyModel.FK_CourseMarkers_Course">
+            <End Role="Cours" EntitySet="Courses" />
+            <End Role="CourseMarker" EntitySet="CourseMarkers" />
+          </AssociationSet>
+          <EntitySet Name="CoursePoints" EntityType="StrideFlyModel.CoursePoint" />
+          <AssociationSet Name="FK_CoursePoints_Courses" Association="StrideFlyModel.FK_CoursePoints_Courses">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="CoursePoint" EntitySet="CoursePoints" />
+          </AssociationSet>
+          <EntitySet Name="Laps" EntityType="StrideFlyModel.Lap" />
+          <EntitySet Name="LiveLaps" EntityType="StrideFlyModel.LiveLap" />
+          <AssociationSet Name="FK_Laps_Courses" Association="StrideFlyModel.FK_Laps_Courses">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Lap" EntitySet="Laps" />
+          </AssociationSet>
+          <EntitySet Name="Participants" EntityType="StrideFlyModel.Participant" />
+          <AssociationSet Name="FK_Participants_Courses" Association="StrideFlyModel.FK_Participants_Courses">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laps_Participants" Association="StrideFlyModel.FK_Laps_Participants">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Lap" EntitySet="Laps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_ParticipantType" Association="StrideFlyModel.FK_Participants_ParticipantType">
+            <End Role="ParticipantType" EntitySet="ParticipantTypes" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trackers_Participants" Association="StrideFlyModel.FK_Trackers_Participants">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Tracker" EntitySet="Trackers" />
+          </AssociationSet>
+          <EntitySet Name="TrackPoints" EntityType="StrideFlyModel.TrackPoint" />
+          <AssociationSet Name="FK_TrackPoints_CourseMarkers_" Association="StrideFlyModel.FK_TrackPoints_CourseMarkers_">
+            <End Role="CourseMarker" EntitySet="CourseMarkers" />
+            <End Role="TrackPoint" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_Courses" Association="StrideFlyModel.FK_TrackPoints_Courses">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="TrackPoint" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_Participants" Association="StrideFlyModel.FK_TrackPoints_Participants">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="TrackPoint" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackPoints_Trackers" Association="StrideFlyModel.FK_TrackPoints_Trackers">
+            <End Role="Tracker" EntitySet="Trackers" />
+            <End Role="TrackPoint" EntitySet="TrackPoints" />
+          </AssociationSet>
+          <EntitySet Name="LiveParticipants" EntityType="StrideFlyModel.LiveParticipant" />
+          <EntitySet Name="LiveTrackers" EntityType="StrideFlyModel.LiveTracker" />
+          <EntitySet Name="PointOfInterests" EntityType="StrideFlyModel.PointOfInterest" />
+          <AssociationSet Name="FK_PointsOfInterest_Courses" Association="StrideFlyModel.FK_PointsOfInterest_Courses">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="PointsOfInterest" EntitySet="PointOfInterests" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="StrideFlyModel.Event" />
+          <AssociationSet Name="FK_Courses_Events" Association="StrideFlyModel.FK_Courses_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_RaceSeries" Association="StrideFlyModel.FK_Events_RaceSeries">
+            <End Role="RaceSeries" EntitySet="RaceSeries1" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laps_Events" Association="StrideFlyModel.FK_Laps_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Lap" EntitySet="Laps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_Events" Association="StrideFlyModel.FK_Participants_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          <EntitySet Name="vEvents" EntityType="StrideFlyModel.vEvent" />
+          </EntityContainer>
+        <EntityType Name="RaceSeries">
+          <Key>
+            <PropertyRef Name="SeriesID" />
+          </Key>
+          <Property Name="SeriesID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SeriesName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SeriesType" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Events" Relationship="StrideFlyModel.FK_Events_RaceSeries" FromRole="RaceSeries" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="SimCard">
+          <Key>
+            <PropertyRef Name="SimID" />
+          </Key>
+          <Property Type="Int32" Name="SimID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SimNo" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNo" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Provider" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PlanDesc" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Trackers" Relationship="StrideFlyModel.FK_Trackers_SimCards" FromRole="SimCard" ToRole="Tracker" />
+        </EntityType>
+        <EntityType Name="CourseMarker">
+          <Key>
+            <PropertyRef Name="MarkerID" />
+          </Key>
+          <Property Type="Int32" Name="MarkerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="Double" Name="Altitude" Nullable="false" />
+          <Property Type="Double" Name="Distance" Nullable="false" />
+          <Property Type="Double" Name="Bearing" Nullable="false" />
+          <Property Type="Int32" Name="FK_Course" />
+          <Property Type="Boolean" Name="Include" DefaultValue="true" />
+          <NavigationProperty Name="Cours" Relationship="StrideFlyModel.FK_CourseMarkers_Course" FromRole="CourseMarker" ToRole="Cours" />
+          <NavigationProperty Name="TrackPoints" Relationship="StrideFlyModel.FK_TrackPoints_CourseMarkers_" FromRole="CourseMarker" ToRole="TrackPoint" />
+        </EntityType>
+        <EntityType Name="ParticipantType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Type="Int32" Name="TypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Participants" Relationship="StrideFlyModel.FK_Participants_ParticipantType" FromRole="ParticipantType" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Tracker">
+          <Key>
+            <PropertyRef Name="TrackerID" />
+          </Key>
+          <Property Type="Int32" Name="TrackerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SerialNo" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IMEI" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Brand" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Model" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_SimCard" />
+          <Property Type="Int32" Name="FK_Participant" />
+          <NavigationProperty Name="SimCard" Relationship="StrideFlyModel.FK_Trackers_SimCards" FromRole="Tracker" ToRole="SimCard" />
+          <NavigationProperty Name="Participant" Relationship="StrideFlyModel.FK_Trackers_Participants" FromRole="Tracker" ToRole="Participant" />
+          <Property Type="Double" Name="BatteryPct" />
+          <NavigationProperty Name="TrackPoints" Relationship="StrideFlyModel.FK_TrackPoints_Trackers" FromRole="Tracker" ToRole="TrackPoint" />
+        </EntityType>
+        <Association Name="FK_Trackers_SimCards">
+          <End Type="StrideFlyModel.SimCard" Role="SimCard" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Tracker" Role="Tracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SimCard">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="Tracker">
+              <PropertyRef Name="FK_SimCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Type="Int32" Name="CourseID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Distance" />
+          <Property Type="Int32" Name="ElevGain" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_Event" />
+          <Property Type="Int32" Name="Order" />
+          <Property Type="String" Name="StrokeColor" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="StrokeThickness" />
+          <Property Type="String" Name="StrokeDash" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CourseMarkers" Relationship="StrideFlyModel.FK_CourseMarkers_Course" FromRole="Cours" ToRole="CourseMarker" />
+          <NavigationProperty Name="CoursePoints" Relationship="StrideFlyModel.FK_CoursePoints_Courses" FromRole="Course" ToRole="CoursePoint" />
+          <NavigationProperty Name="Laps" Relationship="StrideFlyModel.FK_Laps_Courses" FromRole="Course" ToRole="Lap" />
+          <NavigationProperty Name="Participants" Relationship="StrideFlyModel.FK_Participants_Courses" FromRole="Course" ToRole="Participant" />
+          <NavigationProperty Name="TrackPoints" Relationship="StrideFlyModel.FK_TrackPoints_Courses" FromRole="Course" ToRole="TrackPoint" />
+          <NavigationProperty Name="PointsOfInterests" Relationship="StrideFlyModel.FK_PointsOfInterest_Courses" FromRole="Course" ToRole="PointsOfInterest" />
+          <NavigationProperty Name="Event" Relationship="StrideFlyModel.FK_Courses_Events" FromRole="Course" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_CourseMarkers_Course">
+          <End Type="StrideFlyModel.Course" Role="Cours" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.CourseMarker" Role="CourseMarker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cours">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CourseMarker">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CoursePoint">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Type="Int32" Name="PointID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Label" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Latitude" />
+          <Property Type="Double" Name="Longitude" />
+          <Property Type="String" Name="IconName" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_Course" />
+          <NavigationProperty Name="Cours" Relationship="StrideFlyModel.FK_CoursePoints_Courses" FromRole="CoursePoint" ToRole="Course" />
+        </EntityType>
+        <Association Name="FK_CoursePoints_Courses">
+          <End Type="StrideFlyModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.CoursePoint" Role="CoursePoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CoursePoint">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Lap">
+          <Key>
+            <PropertyRef Name="LapID" />
+          </Key>
+          <Property Type="Int32" Name="LapID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="FK_Participant" Nullable="false" />
+          <Property Type="Int32" Name="FK_Event" Nullable="false" />
+          <Property Type="Int32" Name="RunnerNo" />
+          <Property Type="Int32" Name="FK_Course" Nullable="false" />
+          <Property Type="Int32" Name="LapNo" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="TimeElapsed" />
+          <Property Type="Int32" Name="TimeRemaining" />
+          <Property Type="Int32" Name="TimeTotal" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Double" Name="DistanceTotal" />
+          <Property Type="Double" Name="DistanceCompleted" />
+          <Property Type="Double" Name="DistanceRemaining" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Int32" Name="LapPace" />
+          <Property Type="DateTime" Name="StartTime" Precision="7" />
+          <Property Type="DateTime" Name="EndTime" Precision="7" />
+          <Property Type="Int32" Name="ProjTotalTime" />
+          <Property Type="DateTime" Name="ProjStartTime" Precision="7" />
+          <Property Type="DateTime" Name="ProjEndTime" Precision="7" />
+          <NavigationProperty Name="Cours" Relationship="StrideFlyModel.FK_Laps_Courses" FromRole="Lap" ToRole="Course" />
+          <NavigationProperty Name="Participant" Relationship="StrideFlyModel.FK_Laps_Participants" FromRole="Lap" ToRole="Participant" />
+          <NavigationProperty Name="Event" Relationship="StrideFlyModel.FK_Laps_Events" FromRole="Lap" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="LiveLap">
+          <Key>
+            <PropertyRef Name="LapID" />
+          </Key>
+          <Property Type="Int32" Name="LapID" Nullable="false" />
+          <Property Type="Int32" Name="PartID" Nullable="false" />
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+          <Property Type="Int32" Name="RunnerNo" />
+          <Property Type="String" Name="CourseName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CourseDistance" />
+          <Property Type="Int32" Name="CourseElevGain" />
+          <Property Type="Int32" Name="CourseNo" />
+          <Property Type="Int32" Name="LapNo" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="TimeRemaining" />
+          <Property Type="Double" Name="DistanceTotal" />
+          <Property Type="Double" Name="DistanceCompleted" />
+          <Property Type="Double" Name="DistanceRemaining" />
+          <Property Type="Int32" Name="LapPace" />
+          <Property Type="Int32" Name="TimeElapsed" />
+          <Property Type="Int32" Name="TimeTotal" />
+          <Property Type="DateTime" Name="StartTime" Precision="7" />
+          <Property Type="DateTime" Name="EndTime" Precision="7" />
+          <Property Type="Int32" Name="ProjTotalTime" />
+          <Property Type="DateTime" Name="ProjStartTime" Precision="7" />
+          <Property Type="DateTime" Name="ProjEndTime" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Laps_Courses">
+          <End Type="StrideFlyModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="StrideFlyModel.Lap" Role="Lap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Lap">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="PartID" />
+          </Key>
+          <Property Type="Int32" Name="PartID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Bib" />
+          <Property Type="Int32" Name="Lap" />
+          <Property Type="Int32" Name="FK_Course" />
+          <Property Type="Int32" Name="FK_Event" />
+          <Property Type="Int32" Name="FK_Type" />
+          <Property Type="Int32" Name="Runners" />
+          <Property Type="Int32" Name="StartFinishPos" Nullable="false" />
+          <Property Type="Int32" Name="TimeElapsed" />
+          <Property Type="Int32" Name="TimeRemaining" />
+          <Property Type="Int32" Name="TimeTotal" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Double" Name="DistanceTotal" />
+          <Property Type="Double" Name="DistanceCompleted" />
+          <Property Type="Double" Name="DistanceRemaining" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Int32" Name="AvgPace" />
+          <Property Type="Int32" Name="CurrPace" />
+          <Property Type="DateTime" Name="StartTime" Precision="7" />
+          <Property Type="DateTime" Name="EndTime" Precision="7" />
+          <NavigationProperty Name="Cours" Relationship="StrideFlyModel.FK_Participants_Courses" FromRole="Participant" ToRole="Course" />
+          <NavigationProperty Name="Laps" Relationship="StrideFlyModel.FK_Laps_Participants" FromRole="Participant" ToRole="Lap" />
+          <NavigationProperty Name="ParticipantType" Relationship="StrideFlyModel.FK_Participants_ParticipantType" FromRole="Participant" ToRole="ParticipantType" />
+          <NavigationProperty Name="Trackers" Relationship="StrideFlyModel.FK_Trackers_Participants" FromRole="Participant" ToRole="Tracker" />
+          <Property Type="Int32" Name="TotalPace" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Int32" Name="CourseNo" />
+          <NavigationProperty Name="TrackPoints" Relationship="StrideFlyModel.FK_TrackPoints_Participants" FromRole="Participant" ToRole="TrackPoint" />
+          <NavigationProperty Name="Event" Relationship="StrideFlyModel.FK_Participants_Events" FromRole="Participant" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_Participants_Courses">
+          <End Type="StrideFlyModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Participant" Role="Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laps_Participants">
+          <End Type="StrideFlyModel.Participant" Role="Participant" Multiplicity="1" />
+          <End Type="StrideFlyModel.Lap" Role="Lap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="Lap">
+              <PropertyRef Name="FK_Participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_ParticipantType">
+          <End Type="StrideFlyModel.ParticipantType" Role="ParticipantType" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Participant" Role="Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="FK_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trackers_Participants">
+          <End Type="StrideFlyModel.Participant" Role="Participant" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Tracker" Role="Tracker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="Tracker">
+              <PropertyRef Name="FK_Participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TrackPoint">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Type="Int32" Name="PointID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="DateTime" Nullable="false" Precision="7" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="Double" Name="Altitude" Nullable="false" />
+          <Property Type="Double" Name="Speed" />
+          <Property Type="Double" Name="Bearing" />
+          <Property Type="Int32" Name="FK_Tracker" Nullable="false" />
+          <Property Type="Int32" Name="FK_Course" />
+          <Property Type="Int32" Name="FK_Participant" />
+          <Property Type="Int32" Name="FK_Marker" />
+          <Property Type="Double" Name="BatteryPct" />
+          <Property Type="Double" Name="DistanceOnCourse" />
+          <NavigationProperty Name="CourseMarker" Relationship="StrideFlyModel.FK_TrackPoints_CourseMarkers_" FromRole="TrackPoint" ToRole="CourseMarker" />
+          <NavigationProperty Name="Cours" Relationship="StrideFlyModel.FK_TrackPoints_Courses" FromRole="TrackPoint" ToRole="Course" />
+          <NavigationProperty Name="Participant" Relationship="StrideFlyModel.FK_TrackPoints_Participants" FromRole="TrackPoint" ToRole="Participant" />
+          <NavigationProperty Name="Tracker" Relationship="StrideFlyModel.FK_TrackPoints_Trackers" FromRole="TrackPoint" ToRole="Tracker" />
+        </EntityType>
+        <Association Name="FK_TrackPoints_CourseMarkers_">
+          <End Type="StrideFlyModel.CourseMarker" Role="CourseMarker" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.TrackPoint" Role="TrackPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseMarker">
+              <PropertyRef Name="MarkerID" />
+            </Principal>
+            <Dependent Role="TrackPoint">
+              <PropertyRef Name="FK_Marker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_Courses">
+          <End Type="StrideFlyModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.TrackPoint" Role="TrackPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="TrackPoint">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_Participants">
+          <End Type="StrideFlyModel.Participant" Role="Participant" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.TrackPoint" Role="TrackPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="TrackPoint">
+              <PropertyRef Name="FK_Participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackPoints_Trackers">
+          <End Type="StrideFlyModel.Tracker" Role="Tracker" Multiplicity="1" />
+          <End Type="StrideFlyModel.TrackPoint" Role="TrackPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracker">
+              <PropertyRef Name="TrackerID" />
+            </Principal>
+            <Dependent Role="TrackPoint">
+              <PropertyRef Name="FK_Tracker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LiveParticipant">
+          <Key>
+            <PropertyRef Name="PartID" />
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TrackerID" />
+            <PropertyRef Name="TrackPointDT" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Altitude" />
+          </Key>
+          <Property Type="Int32" Name="PartID" Nullable="false" />
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+          <Property Type="String" Name="ParticipantName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Bib" />
+          <Property Type="Int32" Name="CurrentLap" />
+          <Property Type="Int32" Name="CurrentCourse" />
+          <Property Type="Int32" Name="Runners" />
+          <Property Type="Int32" Name="TimeElapsed" />
+          <Property Type="Int32" Name="TimeRemaining" />
+          <Property Type="Int32" Name="TimeTotal" />
+          <Property Type="Double" Name="DistanceTotal" />
+          <Property Type="Double" Name="DistanceCompleted" />
+          <Property Type="Double" Name="DistanceRemaining" />
+          <Property Type="Int32" Name="AvgPace" />
+          <Property Type="Int32" Name="CurrPace" />
+          <Property Type="Int32" Name="TotalPace" />
+          <Property Type="DateTime" Name="StartTime" Precision="7" />
+          <Property Type="DateTime" Name="EndTime" Precision="7" />
+          <Property Type="Int32" Name="TrackerID" Nullable="false" />
+          <Property Type="DateTime" Name="TrackPointDT" Nullable="false" Precision="7" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="Double" Name="Altitude" Nullable="false" />
+          <Property Type="Double" Name="BatteryPct" />
+          <Property Type="Int64" Name="rk" />
+        </EntityType>
+        <EntityType Name="LiveTracker">
+          <Key>
+            <PropertyRef Name="PointID" />
+            <PropertyRef Name="DateTime" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Altitude" />
+            <PropertyRef Name="TrackerID" />
+          </Key>
+          <Property Type="Int32" Name="PointID" Nullable="false" />
+          <Property Type="DateTime" Name="DateTime" Nullable="false" Precision="7" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="Double" Name="Altitude" Nullable="false" />
+          <Property Type="Double" Name="BatteryPct" />
+          <Property Type="Int32" Name="TrackerID" Nullable="false" />
+          <Property Type="String" Name="ParticipantName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Bib" />
+          <Property Type="String" Name="EventName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="rk" />
+        </EntityType>
+        <EntityType Name="PointOfInterest">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Type="Int32" Name="PointID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Location" />
+          <Property Type="String" Name="Icon" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_Course" />
+          <Property Type="String" Name="InfoBoxText" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cours" Relationship="StrideFlyModel.FK_PointsOfInterest_Courses" FromRole="PointsOfInterest" ToRole="Course" />
+        </EntityType>
+        <Association Name="FK_PointsOfInterest_Courses">
+          <End Type="StrideFlyModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.PointOfInterest" Role="PointsOfInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="PointsOfInterest">
+              <PropertyRef Name="FK_Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Type="Int32" Name="EventID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Precision="7" />
+          <Property Type="DateTime" Name="End" Precision="7" />
+          <Property Type="Int32" Name="TimeDiffPT" />
+          <Property Type="Int32" Name="FK_RaceSeries" />
+          <Property Type="String" Name="Location" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Laps" />
+          <Property Type="Boolean" Name="Active" />
+          <Property Type="Int32" Name="RefreshInterval" />
+          <Property Type="Int32" Name="CycleInterval" />
+          <NavigationProperty Name="Courses" Relationship="StrideFlyModel.FK_Courses_Events" FromRole="Event" ToRole="Course" />
+          <NavigationProperty Name="RaceSery" Relationship="StrideFlyModel.FK_Events_RaceSeries" FromRole="Event" ToRole="RaceSeries" />
+          <NavigationProperty Name="Laps1" Relationship="StrideFlyModel.FK_Laps_Events" FromRole="Event" ToRole="Lap" />
+          <NavigationProperty Name="Participants" Relationship="StrideFlyModel.FK_Participants_Events" FromRole="Event" ToRole="Participant" />
+        </EntityType>
+        <Association Name="FK_Courses_Events">
+          <End Type="StrideFlyModel.Event" Role="Event" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="FK_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_RaceSeries">
+          <End Type="StrideFlyModel.RaceSeries" Role="RaceSeries" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceSeries">
+              <PropertyRef Name="SeriesID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="FK_RaceSeries" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laps_Events">
+          <End Type="StrideFlyModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="StrideFlyModel.Lap" Role="Lap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="Lap">
+              <PropertyRef Name="FK_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_Events">
+          <End Type="StrideFlyModel.Event" Role="Event" Multiplicity="0..1" />
+          <End Type="StrideFlyModel.Participant" Role="Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="FK_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vEvent">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="SeriesID" />
+          </Key>
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" Precision="7" />
+          <Property Type="DateTime" Name="End" Precision="7" />
+          <Property Type="Int32" Name="TimeDiffPT" />
+          <Property Type="Int32" Name="SeriesID" Nullable="false" />
+          <Property Type="String" Name="Location" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SeriesName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SeriesType" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Laps" />
+          <Property Type="Int32" Name="RefreshInterval" />
+          <Property Type="Int32" Name="CycleInterval" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StrideFlyModelStoreContainer" CdmEntityContainer="StrideFlyEntities">
+          <EntitySetMapping Name="RaceSeries1">
+            <EntityTypeMapping TypeName="StrideFlyModel.RaceSeries">
+              <MappingFragment StoreEntitySet="RaceSeries">
+                <ScalarProperty Name="SeriesType" ColumnName="SeriesType" />
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+                <ScalarProperty Name="SeriesID" ColumnName="SeriesID" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SimCards">
+            <EntityTypeMapping TypeName="StrideFlyModel.SimCard">
+              <MappingFragment StoreEntitySet="SimCards">
+                <ScalarProperty Name="PlanDesc" ColumnName="PlanDesc" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+                <ScalarProperty Name="SimID" ColumnName="SimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseMarkers">
+            <EntityTypeMapping TypeName="StrideFlyModel.CourseMarker">
+              <MappingFragment StoreEntitySet="CourseMarkers">
+                <ScalarProperty Name="Include" ColumnName="Include" />
+                <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+                <ScalarProperty Name="Bearing" ColumnName="Bearing" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="MarkerID" ColumnName="MarkerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParticipantTypes">
+            <EntityTypeMapping TypeName="StrideFlyModel.ParticipantType">
+              <MappingFragment StoreEntitySet="ParticipantTypes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trackers">
+            <EntityTypeMapping TypeName="StrideFlyModel.Tracker">
+              <MappingFragment StoreEntitySet="Trackers">
+                <ScalarProperty Name="BatteryPct" ColumnName="BatteryPct" />
+                <ScalarProperty Name="FK_Participant" ColumnName="FK_Participant" />
+                <ScalarProperty Name="FK_SimCard" ColumnName="FK_SimCard" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="TrackerID" ColumnName="TrackerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="StrideFlyModel.Course">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="StrokeDash" ColumnName="StrokeDash" />
+                <ScalarProperty Name="StrokeThickness" ColumnName="StrokeThickness" />
+                <ScalarProperty Name="StrokeColor" ColumnName="StrokeColor" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="FK_Event" ColumnName="FK_Event" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ElevGain" ColumnName="ElevGain" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoursePoints">
+            <EntityTypeMapping TypeName="StrideFlyModel.CoursePoint">
+              <MappingFragment StoreEntitySet="CoursePoints">
+                <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laps">
+            <EntityTypeMapping TypeName="StrideFlyModel.Lap">
+              <MappingFragment StoreEntitySet="Laps">
+                <ScalarProperty Name="ProjEndTime" ColumnName="ProjEndTime" />
+                <ScalarProperty Name="ProjStartTime" ColumnName="ProjStartTime" />
+                <ScalarProperty Name="ProjTotalTime" ColumnName="ProjTotalTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="LapPace" ColumnName="LapPace" />
+                <ScalarProperty Name="DistanceRemaining" ColumnName="DistanceRemaining" />
+                <ScalarProperty Name="DistanceCompleted" ColumnName="DistanceCompleted" />
+                <ScalarProperty Name="DistanceTotal" ColumnName="DistanceTotal" />
+                <ScalarProperty Name="TimeTotal" ColumnName="TimeTotal" />
+                <ScalarProperty Name="TimeRemaining" ColumnName="TimeRemaining" />
+                <ScalarProperty Name="TimeElapsed" ColumnName="TimeElapsed" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LapNo" ColumnName="LapNo" />
+                <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+                <ScalarProperty Name="RunnerNo" ColumnName="RunnerNo" />
+                <ScalarProperty Name="FK_Event" ColumnName="FK_Event" />
+                <ScalarProperty Name="FK_Participant" ColumnName="FK_Participant" />
+                <ScalarProperty Name="LapID" ColumnName="LapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveLaps">
+            <EntityTypeMapping TypeName="StrideFlyModel.LiveLap">
+              <MappingFragment StoreEntitySet="LiveLap">
+                <ScalarProperty Name="ProjEndTime" ColumnName="ProjEndTime" />
+                <ScalarProperty Name="ProjStartTime" ColumnName="ProjStartTime" />
+                <ScalarProperty Name="ProjTotalTime" ColumnName="ProjTotalTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="TimeTotal" ColumnName="TimeTotal" />
+                <ScalarProperty Name="TimeElapsed" ColumnName="TimeElapsed" />
+                <ScalarProperty Name="LapPace" ColumnName="LapPace" />
+                <ScalarProperty Name="DistanceRemaining" ColumnName="DistanceRemaining" />
+                <ScalarProperty Name="DistanceCompleted" ColumnName="DistanceCompleted" />
+                <ScalarProperty Name="DistanceTotal" ColumnName="DistanceTotal" />
+                <ScalarProperty Name="TimeRemaining" ColumnName="TimeRemaining" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LapNo" ColumnName="LapNo" />
+                <ScalarProperty Name="CourseNo" ColumnName="CourseNo" />
+                <ScalarProperty Name="CourseElevGain" ColumnName="CourseElevGain" />
+                <ScalarProperty Name="CourseDistance" ColumnName="CourseDistance" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="RunnerNo" ColumnName="RunnerNo" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+                <ScalarProperty Name="LapID" ColumnName="LapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participants">
+            <EntityTypeMapping TypeName="StrideFlyModel.Participant">
+              <MappingFragment StoreEntitySet="Participants">
+                <ScalarProperty Name="CourseNo" ColumnName="CourseNo" />
+                <ScalarProperty Name="TotalPace" ColumnName="TotalPace" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="CurrPace" ColumnName="CurrPace" />
+                <ScalarProperty Name="AvgPace" ColumnName="AvgPace" />
+                <ScalarProperty Name="DistanceRemaining" ColumnName="DistanceRemaining" />
+                <ScalarProperty Name="DistanceCompleted" ColumnName="DistanceCompleted" />
+                <ScalarProperty Name="DistanceTotal" ColumnName="DistanceTotal" />
+                <ScalarProperty Name="TimeTotal" ColumnName="TimeTotal" />
+                <ScalarProperty Name="TimeRemaining" ColumnName="TimeRemaining" />
+                <ScalarProperty Name="TimeElapsed" ColumnName="TimeElapsed" />
+                <ScalarProperty Name="StartFinishPos" ColumnName="StartFinishPos" />
+                <ScalarProperty Name="Runners" ColumnName="Runners" />
+                <ScalarProperty Name="FK_Type" ColumnName="FK_Type" />
+                <ScalarProperty Name="FK_Event" ColumnName="FK_Event" />
+                <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+                <ScalarProperty Name="Lap" ColumnName="Lap" />
+                <ScalarProperty Name="Bib" ColumnName="Bib" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackPoints">
+            <EntityTypeMapping TypeName="StrideFlyModel.TrackPoint">
+              <MappingFragment StoreEntitySet="TrackPoints">
+                <ScalarProperty Name="DistanceOnCourse" ColumnName="DistanceOnCourse" />
+                <ScalarProperty Name="BatteryPct" ColumnName="BatteryPct" />
+                <ScalarProperty Name="FK_Marker" ColumnName="FK_Marker" />
+                <ScalarProperty Name="FK_Participant" ColumnName="FK_Participant" />
+                <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+                <ScalarProperty Name="FK_Tracker" ColumnName="FK_Tracker" />
+                <ScalarProperty Name="Bearing" ColumnName="Bearing" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveParticipants">
+            <EntityTypeMapping TypeName="StrideFlyModel.LiveParticipant">
+              <MappingFragment StoreEntitySet="LiveParticipants">
+                <ScalarProperty Name="rk" ColumnName="rk" />
+                <ScalarProperty Name="BatteryPct" ColumnName="BatteryPct" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="TrackPointDT" ColumnName="TrackPointDT" />
+                <ScalarProperty Name="TrackerID" ColumnName="TrackerID" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="TotalPace" ColumnName="TotalPace" />
+                <ScalarProperty Name="CurrPace" ColumnName="CurrPace" />
+                <ScalarProperty Name="AvgPace" ColumnName="AvgPace" />
+                <ScalarProperty Name="DistanceRemaining" ColumnName="DistanceRemaining" />
+                <ScalarProperty Name="DistanceCompleted" ColumnName="DistanceCompleted" />
+                <ScalarProperty Name="DistanceTotal" ColumnName="DistanceTotal" />
+                <ScalarProperty Name="TimeTotal" ColumnName="TimeTotal" />
+                <ScalarProperty Name="TimeRemaining" ColumnName="TimeRemaining" />
+                <ScalarProperty Name="TimeElapsed" ColumnName="TimeElapsed" />
+                <ScalarProperty Name="Runners" ColumnName="Runners" />
+                <ScalarProperty Name="CurrentCourse" ColumnName="CurrentCourse" />
+                <ScalarProperty Name="CurrentLap" ColumnName="CurrentLap" />
+                <ScalarProperty Name="Bib" ColumnName="Bib" />
+                <ScalarProperty Name="ParticipantName" ColumnName="ParticipantName" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveTrackers">
+            <EntityTypeMapping TypeName="StrideFlyModel.LiveTracker">
+              <MappingFragment StoreEntitySet="LiveTrackers">
+                <ScalarProperty Name="rk" ColumnName="rk" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="Bib" ColumnName="Bib" />
+                <ScalarProperty Name="ParticipantName" ColumnName="ParticipantName" />
+                <ScalarProperty Name="TrackerID" ColumnName="TrackerID" />
+                <ScalarProperty Name="BatteryPct" ColumnName="BatteryPct" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PointOfInterests">
+            <EntityTypeMapping TypeName="StrideFlyModel.PointOfInterest">
+              <MappingFragment StoreEntitySet="PointsOfInterest">
+                <ScalarProperty Name="InfoBoxText" ColumnName="InfoBoxText" />
+                <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="StrideFlyModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="CycleInterval" ColumnName="CycleInterval" />
+                <ScalarProperty Name="RefreshInterval" ColumnName="RefreshInterval" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Laps" ColumnName="Laps" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="FK_RaceSeries" ColumnName="FK_RaceSeries" />
+                <ScalarProperty Name="TimeDiffPT" ColumnName="TimeDiffPT" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEvents">
+            <EntityTypeMapping TypeName="StrideFlyModel.vEvent">
+              <MappingFragment StoreEntitySet="vEvents">
+                <ScalarProperty Name="CycleInterval" ColumnName="CycleInterval" />
+                <ScalarProperty Name="RefreshInterval" ColumnName="RefreshInterval" />
+                <ScalarProperty Name="Laps" ColumnName="Laps" />
+                <ScalarProperty Name="SeriesType" ColumnName="SeriesType" />
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SeriesID" ColumnName="SeriesID" />
+                <ScalarProperty Name="TimeDiffPT" ColumnName="TimeDiffPT" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

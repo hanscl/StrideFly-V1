@@ -1,0 +1,43 @@
+﻿<div class="k-content" id="admin-view-course-result"> 
+    <div>
+    <div class="span1" id="admin-course-result-controls">
+       
+            <div id="admin-course-result-slider"> <!-- data-role="slider" data-bind="value: markersArray.length" data-min="1" data-max="20" data-small-step="1" data-large-step="2"> -->
+               
+               <!-- <input /> -->
+           
+        </div>
+        <a class="btn btn-warning" href="#" id="admin-course-result-preview" data-bind="click: previewCourse">Preview</a>
+        <a class="btn btn-success" href="#" id="admin-course-result-save" data-bind="click: saveCourse">Save</a>
+        <a class="btn btn-danger" href="#" id="admin-course-result-discard" data-bind="click: discardCourse">Discard</a>
+            </div>
+    <div class="span11">
+        <div id="admin-course-result-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="true"
+            data-filterable="true"
+            data-bind="source: markerSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="inline"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="true"
+            data-columns='[
+                { field: "Latitude", width:"10%", format:"{0:#.00000}"},
+                { field: "Longitude", width:"10%", format:"{0:#.00000}"},
+                { field: "Altitude", width:"10%", format:"{0:#}ft"},
+                { field: "Distance", title:"Dist.", width:"10%", format:"{0:#.00}mi"},
+                { field: "Bearing", width:"10%", format:"{0:#.000}"},
+                { field: "Include", width:"5%", title:"Add", template:app.admin.adminCourses.adminCourseResult.checkboxInit},
+                { command: ["edit","destroy"], title: "Actions", width: "45%"}
+                ]'>               
+        </div>
+    </div>
+    </div>
+    <div>
+    <div class="span12 map-div" id="admin-course-result-map">
+
+    </div>
+        </div>
+</div>
+

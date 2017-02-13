@@ -1,0 +1,76 @@
+﻿
+<div class="k-content" id="live-trackers-third"> 
+ <div id="live-trackers-item" class="form-horizontal well">
+        <div id="live-trackers-item-data">
+          <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-id">Tracker ID:</label>
+           </div>
+              <div class="controls" id="live-tracker-id">
+              <span data-bind="text: liveTrackerItem.TrackerID"></span>
+            </div>
+          </div>
+
+            <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-latitude">Latitude:</label>
+           </div>
+              <div  class="controls" id="live-tracker-latitude">
+              <span data-bind="text: liveTrackerItem.Latitude"></span>
+            </div>
+          </div>
+
+           <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-longitude">Longitude:</label>
+           </div>
+              <div class="controls"  id="live-tracker-longitude">
+              <span data-format:"{0:C}" data-bind="text: liveTrackerItem.Longitude"></span>
+            </div>
+          </div>
+
+            <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-altitude">Altitude:</label>
+           </div>
+              <div class="controls"  id="live-tracker-altitude">
+              <span data-bind="text: liveTrackerItem.Altitude"></span>
+            </div>
+          </div>
+
+            <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-participant">Runner/Team:</label>
+           </div>
+              <div class="controls" id="live-tracker-participant">
+              #<span data-bind="text: liveTrackerItem.Bib"></span> - 
+                  <span data-bind="text: liveTrackerItem.ParticipantName"></span>
+            </div>
+          </div>
+
+            
+            <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-event">Event:</label>
+           </div>
+              <div class="controls"  id="live-tracker-event">
+              <span data-bind="text: liveTrackerItem.EventName"></span>
+            </div>
+          </div>
+
+             
+       <!--     <div class="control-group live-list-group">
+              <div class="live-list-item-div">
+              <label  class="control-label live-list-item-label" for="live-tracker-battery">Battery:</label>
+           </div>
+              <div class="controls"  id="live-tracker-battery">
+              <span data-bind="text: batteryStatus"></span>
+            </div>
+          </div> -->
+
+        </div>
+     </div>
+</div>
+
+
+   

@@ -1,0 +1,30 @@
+﻿<div class="live-event-currentlap-border"> <!-- start pace calculator -->
+         <div class="row-fluid live-event-laptable-header-row">       
+        <div class="span12 live-event-detail" style="min-height:0">
+            Active Trackers
+        </div>
+
+   </div>
+    </div>
+<div class="k-content" id="live-trackers-info"> 
+ <div id="live-trackers-info-form">
+     <div id="live-trackers-info-grid"
+            data-role="grid"
+            data-sortable="true"
+            data-pageable="false"
+            data-filterable="true"
+            data-bind="source: liveTrackerSource, events: { dataBound: dataBound, change: onChange }"
+            data-editable="false"
+            data-selectable="true"
+            data-scrollable="false"
+            data-auto-bind="false"
+            data-columns='[
+                { field: "TrackerID", width:"15%"},
+                { field: "DateTime", title:"Last Seen", width:"10%", format:"{0:t}"},
+                { field: "EventName", title:"Active Event?", width:"15%", template:app.live.liveTrackers.eventFormat},
+                { field: "Bib", title:"Bib #", width:"20%", template:app.live.liveTrackers.bibFormat},
+                { field: "BatteryPct", title:"Battery", width:"10%", format:"{0:P0}"}
+                ]'>               
+    </div>
+        </div>
+</div>

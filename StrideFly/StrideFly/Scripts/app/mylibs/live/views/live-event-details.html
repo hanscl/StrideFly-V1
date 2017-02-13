@@ -1,0 +1,92 @@
+﻿<div id="live-event-details" > 
+    <div>
+    <!-- First Row -->
+    <div class="row-fluid">       
+        <div class="span2 live-event-detail live-event-detail-largeText" style="text-align:center;">
+            #<span data-bind="text: activeParticipant.data.Bib">#</span>
+        </div>
+        <div  class="span4 live-event-detail-mediumText live-event-detail-noMargin">
+           <span data-bind="text: activeParticipant.data.ParticipantName"></span>
+         </div>
+        <div class="span2 live-event-detail live-event-detail-image bg-icon-pace-round">
+
+       </div>
+       <div class="span4 live-event-detail live-event-detail-largeText live-event-detail-smallMargin">
+           <span data-bind="text: activeParticipant.currPace"></span>
+       </div>
+
+   </div>
+    <!-- 
+    <hr class="live-event-detail-hr"/>
+        -->
+
+    <!-- Second Row -->
+    <div class="row-fluid">
+          <div class="span2 live-event-detail live-event-detail-image bg-icon-lap">
+          </div>
+         <div  class="span4 live-event-detail live-event-detail-mediumText live-event-detail-noMargin">
+          <b>Lap </b><span data-bind="text: activeParticipant.data.CurrentLap"></span> / <span data-bind="text: events[0].Laps"></span>
+         </div>
+        <div class="span2 live-event-detail live-event-detail-image bg-icon-mile-marker">
+         </div>
+        <div  class="span4 live-event-detail live-event-detail-largeText live-event-detail-smallMargin">
+          <span data-bind="text: activeParticipant.distanceCompleted"></span> / <span data-bind="text: activeParticipant.distanceTotal"></span>  miles
+         </div>
+     </div>
+    </div> <!-- End sumamry section -->
+
+    <div class="live-event-detail-border"> <!-- start pace calculator -->
+         <div class="row-fluid live-event-detail-header-row">       
+        <div class="span12 live-event-detail" style="min-height:0">
+            Pace Calculator<span class="superscript"> (beta)</span>
+        </div>
+
+   </div>
+
+     <!-- Pace Calc: 1st Row -->
+     <div class="row-fluid"> 
+         <div class="span2 live-event-detail live-event-detail-image bg-icon-timer-start">
+          </div>
+         <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>Start: </b><span data-bind="text: activeParticipant.startTime" style="padding-left:25px"></span><br />
+           <b>Elapsed: </b><span data-bind="text: activeParticipant.timeElapsed" style="padding-left:5px"></span><br />
+         </div>
+            <div class="span2 live-event-detail live-event-detail-image bg-icon-timer-stop">
+          </div> 
+          <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>To Go: </b><span data-bind="text: activeParticipant.timeRemaining" style="padding-left:6px"></span><br />
+           <b>Finish: </b><span data-bind="text: activeParticipant.endTime" style="padding-left:4px"></span><br />
+         </div>
+     </div>
+
+   
+
+
+    <!-- Pace Calc: 2nd Row -->
+    <div class="row-fluid"> 
+      <div class="span2 live-event-detail live-event-detail-image bg-icon-chart">
+
+       </div>
+       <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>Average Pace</b><br />
+           <span data-bind="text: activeParticipant.avgPace" ></span>
+       </div>
+
+        <div class="span2 live-event-detail live-event-detail-image bg-icon-calculator">
+
+       </div>
+       <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>Projected Total Pace</b><br />
+           <span data-bind="text: activeParticipant.totalPace"></span>
+       </div>
+        
+        <!-- HIDE BATTERY LEVEL FOR NOW
+        <div class="span2 live-event-detail live-event-detail-image bg-icon-battery-green" style="-moz-background-size: 40px auto; -o-background-size: 40px auto; -webkit-background-size: 40px auto; background-size: 40px auto; margin-top:15px;">
+        </div>
+         <div class="span4 live-event-detail live-event-detail-mediumText live-event-detail-smallMargin">
+           <span data-bind="text: activeParticipant.batteryPct"></span> Tracker Battery
+         </div>  -->
+    </div>
+
+        </div> <!-- End: Pace Calculator -->
+</div>

@@ -1,0 +1,41 @@
+﻿<div class="live-event-currentlap-border" id="live-event-currentlap"> 
+         
+    <div class="row-fluid live-event-currentlap-header-row">       
+        <div class="span12 live-event-detail" style="min-height:0; font-weight:normal;">
+            Current Lap:  <b>Runner #<span data-bind="    text: activeParticipant.activeLap.data.RunnerNo"></span></b>  on  <b><span data-bind="    text: activeParticipant.activeLap.data.CourseName"></span></b>
+
+        </div>
+   </div>
+
+    <!-- Second Row -->
+    <div class="row-fluid">
+        <div class="span2 live-event-detail live-event-detail-image bg-icon-chart">
+
+       </div>
+        <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>Average Pace</b><br />
+           <span data-bind="text: activeParticipant.activeLap.lapPace"></span>
+       </div>  
+        <div class="span2 live-event-detail live-event-detail-image bg-icon-mile-marker">
+         </div>
+        <div  class="span4 live-event-detail live-event-detail-largeText live-event-detail-smallMargin">
+          <span data-bind="text: activeParticipant.activeLap.distanceCompleted"></span> / <span data-bind="    text: activeParticipant.activeLap.distanceTotal"></span>  miles
+         </div>
+     </div>
+    
+     <!-- Third Row -->
+     <div class="row-fluid"> 
+         <div class="span2 live-event-detail live-event-detail-image bg-icon-timer-start">
+          </div>
+         <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>Start  : </b><span data-bind="text: activeParticipant.activeLap.startTime" style="padding-left:25px"></span><br />
+           <b>Elapsed: </b><span data-bind="text: activeParticipant.activeLap.timeElapsed" style="padding-left:5px"></span><br />
+         </div>
+            <div class="span2 live-event-detail live-event-detail-image bg-icon-timer-stop">
+          </div> 
+         <div class="span4 live-event-detail live-event-detail-twoLineText live-event-detail-noMargin">
+           <b>To Go: </b><span data-bind="text: activeParticipant.activeLap.timeRemaining" style="padding-left:6px"></span><br />
+           <b>Finish: </b><span data-bind="text: activeParticipant.activeLap.projEndTime" style="padding-left:4px"></span><br />
+         </div>
+     </div>
+</div>
